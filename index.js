@@ -9,7 +9,7 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-
+const PORT=process.env.PORT || 4000;
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -24,7 +24,7 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 
-const server = app.listen(process.env.PORT, () =>
-  console.log(`Server started on ${process.env.PORT}`)
+const server = app.listen(PORT, () =>
+  console.log(`Server started on ${PORT}`)
 );
 
